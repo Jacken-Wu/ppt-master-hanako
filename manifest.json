@@ -1,0 +1,27 @@
+{
+  "id": "ppt-master",
+  "name": "PPT Master",
+  "version": "2.7.0",
+  "description": "AI generates natively editable PPTX from any document — PDF/DOCX/URL/Markdown to real PowerPoint shapes (DrawingML). Multi-role collaboration pipeline: Strategist → Image Generator → Executor → Post-processing → Export.",
+  "trust": "full-access",
+  "hidden": false,
+  "contributes": {
+    "configuration": {
+      "properties": {
+        "projectsDir": {
+          "type": "string",
+          "title": "Project workspace directory",
+          "description": "Absolute path where generated PPT projects are stored. Defaults to plugin dataDir/projects/."
+        },
+        "pythonPath": {
+          "type": "string",
+          "title": "Python interpreter path",
+          "description": "Path to the Python interpreter for running scripts. Defaults to 'python3' on macOS/Linux, 'python' on Windows."
+        }
+      }
+    },
+    "skills": [
+      "./skills/ppt-master"
+    ]
+  }
+}

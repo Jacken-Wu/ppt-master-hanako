@@ -60,12 +60,10 @@
 
 ### AI Image Strategy (fill only when §VIII has `ai` rows)
 
-- **Image Rendering**: [one of the 20 names in `references/image-renderings/_index.md` (e.g. `vector-illustration`), or `custom`]
-- **Image Rendering Behavior**: [required when Rendering is `custom`; one-paragraph prose per `image-renderings/_index.md §1.5`]
-- **Image Palette**: [one of the 14 names in `references/image-palettes/_index.md` (e.g. `cool-corporate`), or `custom`]
-- **Image Palette Behavior**: [required when Palette is `custom`; one-paragraph prose per `image-palettes/_index.md §2`]
+- **Image Rendering**: [one of the 16 names in `references/image-renderings/_index.md`, e.g. `vector-illustration`]
+- **Image Palette**: [one of the 10 names in `references/image-palettes/_index.md`, e.g. `cool-corporate`]
 
-> Strategist: lock these once per deck in h.5; every AI image inherits them. Cross-check the rendering × palette compatibility matrix in `image-palettes/_index.md` — avoid `✗` combinations (matrix only covers presets; when either dimension is `custom`, Strategist owns the compatibility judgment). Leave the section out entirely if §VIII has no `ai` rows. Omit the `Behavior` rows whenever the corresponding dimension is a preset name.
+> Strategist: lock these once per deck in h.5; every AI image inherits them. Cross-check the rendering × palette compatibility matrix in `image-palettes/_index.md` — avoid `✗` combinations. Leave the section out entirely if §VIII has no `ai` rows.
 
 ### Gradient Scheme (if needed, using SVG syntax)
 
@@ -242,9 +240,9 @@ Catalog read: 71 templates
 
 ## VIII. Image Resource List (if needed)
 
-| Filename | Dimensions | Ratio | Purpose | Layout pattern | Acquire Via | Status | Reference | text_policy | page_role |
-| -------- | --------- | ----- | ------- | -------------- | ----------- | ------ | --------- | ----------- | --------- |
-| cover_bg.png | {canvas_info['dimensions']} | [ratio] | Cover background | #1 full-bleed background with floating title + #29 two-stop scrim | ai | Pending | [subject + intent + composition, no style/HEX] | | |
+| Filename | Dimensions | Ratio | Purpose | Type | Layout pattern | Acquire Via | Status | Reference | text_policy | page_role |
+| -------- | --------- | ----- | ------- | ---- | -------------- | ----------- | ------ | --------- | ----------- | --------- |
+| cover_bg.png | {canvas_info['dimensions']} | [ratio] | Cover background | Background | #1 full-bleed background with floating title + #29 two-stop scrim | ai | Pending | [subject + intent + composition, no style/HEX] | | |
 
 > **Layout pattern column is MANDATORY** — value is one or more `#<id> <name>` joined by ` + ` drawn verbatim from [`references/image-layout-patterns.md`](../references/image-layout-patterns.md) (Primary + optional Modifiers). Empty cells, paraphrased names, or invented ids invalidate the row. See `strategist.md §h` GATE for the three-layer requirement (read → produce → image-as-canvas coverage).
 
@@ -254,10 +252,18 @@ Catalog read: 71 templates
 - **Existing** — user-supplied, place in `images/`
 - **Placeholder** — not yet processed, use dashed border in SVG
 
-**text_policy** (`ai` rows only; AI judges per row, no global default bias):
+**Type** (narrative shorthand — kept for backward compatibility; Image_Generator infers its 9-way internal-composition type from `Purpose`):
 
-- `none` — image carries no text; SVG overlays all labels
-- `embedded` — image contains in-artwork text: decorative lettering, a designed title, hand-lettered keywords, or stable visual identifiers (axis labels, subplot letters, unit symbols). Body copy / data points / long quotes never go inside the image regardless. English text renders most reliably; CJK characters fail in most models
+- **Background** — full-page (covers / chapters); reserve text area
+- **Photography** — real scenes, people, products, architecture
+- **Illustration** — flat / vector / cartoon / concept diagrams
+- **Diagram** — flowcharts, architecture diagrams, concept maps
+- **Decorative** — partial decorations, textures, borders, dividers
+
+**text_policy** (`ai` rows only; leave blank for default):
+
+- *blank / `none`* — image carries no text; SVG overlays labels
+- `embedded` — image contains in-artwork text: decorative lettering, a designed title, or hand-lettered keywords. Body copy / data points / long quotes never go inside the image regardless. English text renders most reliably; CJK characters fail in most models
 
 **page_role** (`ai` rows only; leave blank for default):
 

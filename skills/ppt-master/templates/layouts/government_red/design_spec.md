@@ -1,12 +1,3 @@
----
-layout_id: government_red
-kind: layout
-summary: Government briefings, policy interpretation, work summaries, project introductions, investment promotion.
-canvas_format: ppt169
-page_count: 5
-page_types: [cover, toc, chapter, content, ending]
----
-
 # Government Red Style Template - Design Specification
 
 > Suitable for government agency briefings, policy presentations, work summaries, project introductions, and similar scenarios across all levels of government.
@@ -36,7 +27,58 @@ page_types: [cover, toc, chapter, content, ending]
 
 ---
 
-## III. Page Structure
+## III. Color Scheme
+
+### Primary Colors
+
+| Role           | Value       | Notes                              |
+| -------------- | ----------- | ---------------------------------- |
+| **Government Red** | `#8B0000` | Primary color, title bar, accent blocks, decoration bars |
+| **Government Blue** | `#003366` | Secondary accent, chapter page backgrounds |
+| **Background White** | `#FFFFFF` | Main page background            |
+| **Auxiliary Light Gray** | `#F5F7FA` | Non-critical content background blocks |
+| **Border Gray** | `#E4E7EB`  | Dividers, borders                  |
+| **Gold Accent** | `#DAA520`  | Decorative accents, important data highlights |
+
+### Text Colors
+
+| Role           | Value       | Usage                  |
+| -------------- | ----------- | ---------------------- |
+| **Primary Text** | `#1A1A1A` | Body text, titles      |
+| **White Text** | `#FFFFFF`   | Text on dark backgrounds |
+| **Secondary Text** | `#4A5568` | Dimmed sections, supplementary notes |
+| **Light Auxiliary** | `#718096` | Annotations, page numbers, hints |
+
+### Functional Colors
+
+| Usage    | Value       | Description    |
+| -------- | ----------- | -------------- |
+| **Success** | `#38A169` | Completed/On target |
+| **Warning** | `#E53E3E` | Attention/Alert |
+| **Info**    | `#3182CE` | General information |
+
+---
+
+## IV. Typography System
+
+### Font Stack
+
+**Font Stack**: `"Microsoft YaHei", "微软雅黑", "SimHei", "Source Han Sans SC", Arial, sans-serif`
+
+### Font Size Hierarchy
+
+| Level | Usage              | Size | Weight  |
+| ----- | ------------------ | ---- | ------- |
+| H1    | Cover main title   | 48px | Bold    |
+| H2    | Page heading       | 28px | Bold    |
+| H3    | Section title/Subtitle | 24px | Bold |
+| P     | Body content       | 18px | Regular |
+| High  | Highlighted data   | 36px | Bold    |
+| Sub   | Supplementary text | 14px | Regular |
+
+---
+
+## V. Page Structure
 
 ### General Layout
 
@@ -58,7 +100,7 @@ page_types: [cover, toc, chapter, content, ending]
 
 ---
 
-## IV. Page Types
+## VI. Page Types
 
 ### 1. Cover Page (01_cover.svg)
 
@@ -98,17 +140,7 @@ page_types: [cover, toc, chapter, content, ending]
 
 ---
 
-## V. SVG Page Roster
-
-| File | Role | Description |
-|------|------|-------------|
-| `01_cover.svg` | cover | Title slide; project name, presenter, date |
-| `02_chapter.svg` | chapter | Chapter divider page (large number + chapter title) |
-| `02_toc.svg` | toc | Table of contents listing major sections |
-| `03_content.svg` | content | Main content page; body of the deck |
-| `04_ending.svg` | ending | Closing/thank-you page |
-
-## VI. Layout Modes
+## VII. Layout Modes
 
 | Mode               | Use Cases                      |
 | ------------------ | ------------------------------ |
@@ -122,7 +154,7 @@ page_types: [cover, toc, chapter, content, ending]
 
 ---
 
-## VII. Spacing Guidelines
+## VIII. Spacing Guidelines
 
 | Element          | Value  |
 | ---------------- | ------ |
@@ -134,7 +166,7 @@ page_types: [cover, toc, chapter, content, ending]
 
 ---
 
-## VIII. SVG Technical Constraints
+## IX. SVG Technical Constraints
 
 ### Mandatory Rules
 
@@ -154,7 +186,7 @@ page_types: [cover, toc, chapter, content, ending]
 
 ---
 
-## IX. Placeholder Specification
+## X. Placeholder Specification
 
 Templates use `{{PLACEHOLDER}}` format placeholders. Common placeholders:
 
@@ -177,7 +209,7 @@ Templates use `{{PLACEHOLDER}}` format placeholders. Common placeholders:
 
 ---
 
-## X. Usage Instructions
+## XI. Usage Instructions
 
 1. Copy the template to the project directory
 2. Replace logo files in the images directory (if applicable)
@@ -187,7 +219,7 @@ Templates use `{{PLACEHOLDER}}` format placeholders. Common placeholders:
 
 ---
 
-## XI. Design Highlights
+## XII. Design Highlights
 
 - **Dual-Color Gradient Top Decoration**: Red-blue gradient reflects a government style
 - **Gold Accent Elements**: Adds a sense of dignity

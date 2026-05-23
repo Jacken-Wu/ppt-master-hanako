@@ -39,7 +39,6 @@ python3 scripts/svg_to_pptx.py <project_path> --no-notes
 python3 scripts/svg_to_pptx.py <project_path> -t none
 python3 scripts/svg_to_pptx.py <project_path> --auto-advance 3
 python3 scripts/svg_to_pptx.py <project_path> --animation mixed --animation-duration 0.8
-python3 scripts/svg_to_pptx.py <project_path> --merge-paragraphs   # editability-first mode (see below)
 python3 scripts/notes_to_audio.py <project_path> --voice zh-CN-XiaoxiaoNeural
 python3 scripts/svg_to_pptx.py <project_path> --recorded-narration audio
 ```
@@ -52,11 +51,6 @@ Behavior:
   - `exports/<project_name>_<timestamp>_svg.pptx` — SVG snapshot pptx for visual reference, sibling of the native pptx
   - Live preview already serves as the SVG visual reference for day-to-day use; the snapshot pptx is for distribution or frozen-state archival
 - Explicit `-o/--output` skips `backup/`; pair with `--svg-snapshot` to also emit the side-by-side `_svg.pptx` next to the chosen path
-- `--merge-paragraphs` (opt-in) trades SVG line-layout fidelity for PowerPoint editability:
-  - Default: every dy-stacked `<tspan>` becomes its own text frame — exact SVG line layout is preserved but a 12-line paragraph is 12 separate textboxes
-  - With the flag: mergeable paragraph blocks (same x, dy clustered around one base line-height, optional larger gap for paragraph breaks) collapse into one editable text frame with multiple `<a:p>` and precise `<a:lnSpc>` / `<a:spcBef>`. Resizing the box reflows text inside it.
-  - Side effect: PowerPoint may wrap merged paragraphs to a different line count than the SVG source. Pages with tight typographic alignment (covers, charts, tables) usually want the default; long body text (abstracts, multi-paragraph sections, reference lists) usually benefits from the flag
-  - Mergeable detection is conservative: only fires when the children form a clean paragraph block; mixed-layout `<text>` falls through to the default per-line path
 - Recommended source directory: `svg_final/`
 - For PPTX template-import workspaces, use `-s svg-flat` when you need a visual round-trip check. The layered `svg/` tree is the machine-readable template source and intentionally does not inline inherited master / layout decoration into each slide.
 - Native mode is strict about unsupported visual SVG elements: if a visual element cannot be represented or safely preserved, export fails with the SVG file, element tag, and position instead of silently dropping content.
@@ -79,8 +73,7 @@ Behavior:
 - Start mode is set by `--animation-trigger`, mirroring PowerPoint's Start dropdown: `after-previous` (default, cascade with `--animation-stagger` spacing on slide entry), `on-click` (presenter-paced), `with-previous` (all together on slide entry)
 - `on-click` is for live presentations only; recorded narration rejects it because the tool does not generate object-level click timings
 - Flat SVG roots without top-level groups fall back to at most 8 visible primitives; beyond that, animation is skipped on the slide
-- `auto` (default) maps effect from the group's SVG id: information-dense elements get a single stable effect (chart→wipe, card-/step-/pillar-→fly, title/takeaway→fade); image-like ids (hero/figure-/image/img-/kpi) cycle through a richer visual pool (zoom/dissolve/circle/box/diamond/wheel) so multiple images vary across the deck; unmatched ids cycle through a fade/wipe/fly/zoom fallback pool
-- `mixed` (legacy) is deterministic: the first animated group on each slide uses `fade`, then later groups cycle through a larger 16-effect pool across the whole deck; `random` samples from that same legacy pool
+- `mixed` is deterministic: the first animated group on each slide uses `fade`, then later groups cycle through a curated visible-effect pool across the whole deck; `random` samples from that same pool
 - `--animation-duration` controls per-element entrance length (default `0.4`); `--animation-stagger` adds gap between elements in `after-previous` mode (default `0.5`)
 - Optional object-level overrides live in `<project>/animations.json` or a path passed via `--animation-config`; build and validate them with `animation_config.py scaffold|validate`
 

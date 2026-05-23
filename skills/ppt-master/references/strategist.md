@@ -82,15 +82,15 @@ Anchors the downstream confirmations e (Color), f (Icon), g (Typography), h (Ima
 
 Accept user combinations and one-off coinages ("Scandinavian + slight industrial"). The list is for recall, not constraint.
 
-> **Template vs descriptor**: a style mention may sound like a template name ("academic style" vs the `academic_defense/` template directory). Step 3 only triggers on an explicit template directory path supplied by the user — bare names and style words never copy templates. If a template was triggered upstream, its files are already in `<project_path>/templates/`. Layer 2 only handles descriptors that did NOT come with a template path.
+> **Template vs descriptor**: a style mention may sound like a template name ("Google style" vs the `google_style/` template directory). Step 3 only triggers on an explicit template directory path supplied by the user — bare names and style words never copy templates. If a template was triggered upstream, its files are already in `<project_path>/templates/`. Layer 2 only handles descriptors that did NOT come with a template path.
 
 **Downstream effect**: e / f / g / h values realize the Layer 2 descriptor on top of the Layer 1 mode. Example: "A) Versatile + neo-Chinese" → e leans cinnabar / ink / rice-paper; g pairs serif (KaiTi-class) with sans body; f minimal line icons; h restrained traditional imagery with negative space.
 
 ### e. Color Scheme Recommendation
 
-**Hard rule**: User / template colors are truth. If the user has specified colors (HEX, brand colors, or natural-language directives like "use blue as primary"), or a template was loaded at Step 3 via an explicit path (`<project_path>/templates/design_spec.md`), lock those directly and skip the recommendation table. Do not adjust them to fit any palette or industry default. Only when no color signal exists from user or template do you proactively propose a scheme below.
+**Hard rule**: User / brand / template colors are truth. If the user has specified colors (HEX, brand colors, or natural-language directives like "use blue as primary"), a brand was loaded at Step 3 via an explicit path (`<project_path>/brand/design_spec.md`), or a layout template was loaded with its own theme colors, lock those directly and skip the recommendation table. Do not adjust them to fit any palette or industry default. Only when no color signal exists from user, brand, or template do you proactively propose a scheme below.
 
-> Step 3 already collapses brand and layout inputs into one fused `design_spec.md`; this layer reads from that single source and does not need to re-resolve brand vs layout precedence.
+> **Precedence when multiple sources are present**: explicit user override > brand > layout template defaults. Brand identity tokens (primary / secondary / accent / text / bg) override layout template defaults; the layout template's page structure stays intact.
 
 Proactively provide a color scheme (HEX values) based on content characteristics and industry.
 
@@ -165,7 +165,7 @@ See [`../templates/icons/README.md`](../templates/icons/README.md) for the curre
 
 **Mandatory**: propose **two** combinations to the user — one concord (safe), one contrast (with tension). Do not default to "title = body, same font" without explicit user request.
 
-> **Template precedence**: when a template was loaded at Step 3 via an explicit path and declares `title` / `body` font stacks in `<project_path>/templates/design_spec.md §III Typography` / §IV (or whichever heading the fused spec uses), lock those directly and skip the two-combination presentation. Same precedence as e. — user override > template values.
+> **Brand precedence**: when a brand was loaded at Step 3 via an explicit path and declares `title` / `body` font stacks in `<project_path>/brand/design_spec.md §III Typography`, lock those directly and skip the two-combination presentation. Same precedence as e. — user override > brand > layout template defaults.
 
 **Cross-platform pre-installed reference**:
 
@@ -282,9 +282,8 @@ After the candidates, append one line:
 | `Mood` line MUST include a real-world analogy | Company / publication / event the user can picture. Adjective stacks alone are forbidden. |
 | Adapt labels to chat language | Schema is English by default. Chinese chat → render as 「方案 A / 视觉 / 色彩 / 情绪」. Structure stays the same; only the labels translate. |
 | Skip presentation when user has specified | User-named rendering or palette (chat / brand / template) bypasses the candidate flow — lock directly per the truth-precedence rule. |
-| `custom` is a tail-case, not a default | When no preset fits, a candidate may set `rendering: custom` and / or `palette: custom` (rules: [`image-renderings/_index.md`](../image-renderings/_index.md) §1.5, [`image-palettes/_index.md`](../image-palettes/_index.md) §2). At most one candidate per dimension may carry `custom`; one candidate may carry both dimensions as `custom`. `Visual` / `Color` lines describe the behavior in prose, never by naming a competing preset. |
 
-**Forbidden — padding with conflicts**: if e.'s HEX cannot find ≥3 compatible palettes, present the smaller set (2 candidates) and state "your color is unusual — only N palettes can carry it without conflict." A `custom` candidate is allowed only when its prose genuinely describes a tail-case the presets cannot — not as a slot-filler. Never fill remaining slots with known-conflicting options.
+**Forbidden — padding with conflicts**: if e.'s HEX cannot find ≥3 compatible palettes, present the smaller set (2 candidates) and state "your color is unusual — only N palettes can carry it without conflict." Never fill remaining slots with known-conflicting options.
 
 **Worked example** (e. = `#1E3A5F` navy + `#F8F9FA` off-white + `#D4AF37` gold; d. = consulting; chat in English):
 
@@ -307,24 +306,7 @@ After the candidates, append one line:
 > Reference images: see references/ai-image-comparison/ for matching PNGs by name.
 ```
 
-**Worked example — `custom × custom`** (tail-case; e.g. 新中式 deck with `#1A1A1A` + `#F5EFE0` + `#A52A2A`):
-
-```
-[Plan A] 文人雅致 — custom × custom
-  Visual: dry-brush burnt-ink, five tonal gradations, 宣纸 paper-grain, deliberate negative space; 朱泥 seal as single red mark
-  Color: cream #F5EFE0 ~65% negative space + burnt-ink #1A1A1A ~20% strokes + cinnabar #A52A2A 3-5% seal
-  Mood: literati restraint; like 苏州博物馆 pacing
-```
-
-`Visual` / `Color` lines feed `spec_lock.md`'s `image_*_behavior` rows verbatim.
-
 After the user picks a candidate (or supplies a custom variant), proceed to "Recording the lock" below.
-
-#### Prompt depth for §VIII rows
-
-**Hard rule**: When §VIII contains paper-figure or subject-domain rows (scientific subjects, specialized fields, regulated content), each row's `generation description` follows [`image-generator.md`](./image-generator.md) §4.2 Prompt depth — expand to the depth the subject demands; 500-1000+ words is normal.
-
-**Forbidden — generic shortening**: never drop a paper-figure row's prompt to a 50-word generic illustration brief.
 
 ---
 
@@ -390,27 +372,18 @@ After auto-selecting, cross-check `image-palettes/_index.md` compatibility matri
 
 **Recording the lock** — after picking, write to:
 
-- `design_spec.md §III Visual Theme` — add lines under the color table:
+- `design_spec.md §III Visual Theme` — add two lines under the color table:
   ```
   - **Image Rendering**: vector-illustration
   - **Image Palette**: cool-corporate
   ```
-- `spec_lock.md colors` section — add rows at the bottom:
+- `spec_lock.md colors` section — add two extra rows at the bottom:
   ```
   - image_rendering: vector-illustration
   - image_palette: cool-corporate
   ```
 
-**Hard rule — `custom` recording**: when the picked candidate has `rendering: custom` or `palette: custom`, also write the sibling `*_behavior` row. Source: the candidate's `Visual` line (for rendering) / `Color` line (for palette), expanded to cover the prose requirements in [`image-renderings/_index.md`](../image-renderings/_index.md) §1.5 / [`image-palettes/_index.md`](../image-palettes/_index.md) §2 (chat candidates are compressed; spec_lock prose covers all axes). Both `design_spec.md` and `spec_lock.md` must carry the behavior line. Example for the `custom × custom` candidate above:
-
-```
-- image_rendering: custom
-- image_rendering_behavior: "Dry-brush burnt-ink with five tonal gradations, 宣纸 paper-grain at 12% opacity, deliberate negative space; 朱泥 seal as a single red mark; no Western outlines, no gradients."
-- image_palette: custom
-- image_palette_behavior: "宣纸 cream `#F5EFE0` carries ~65% as negative space; burnt-ink `#1A1A1A` anchors ~20% as brush strokes; cinnabar `#A52A2A` only in 3-5% as seal. Literati restraint — no fourth color."
-```
-
-Image_Generator reads these fields and applies them deck-wide. If both are absent (legacy decks), it falls back to inferring from `d. Style` and `e. Color` — quality is acceptable but not optimal. Always lock both when C is selected.
+Image_Generator reads these two fields and applies them deck-wide. If both are absent (legacy decks), Image_Generator falls back to inferring them from `d. Style` and `e. Color` — quality is acceptable but not optimal. Always lock both when C is selected.
 
 #### hero_page suggestion (same confirmation turn)
 
@@ -428,6 +401,7 @@ After the user picks a candidate, scan the outline and surface any pages where t
 | Layout suggestion | e.g., `Wide landscape (suitable for full-screen/illustration)` |
 | **Layout pattern** | **MANDATORY** — one or more `#<id> <name>` joined by ` + ` from `image-layout-patterns.md`. Combine a Primary id with optional Modifier ids when the page needs it (e.g. `#48 side-by-side comparison + #21 rounded rectangle crop + #29 two-stop scrim`). A single Primary is fine when the page calls for it. See the GATE earlier in this section. Empty cells or invented ids are invalid. |
 | Purpose | e.g., `Cover background` |
+| Type | Narrative shorthand: Background / Photography / Illustration / Diagram / Decorative pattern. (The internal-composition type used by Image_Generator — one of `background / hero / typography / infographic / flowchart / framework / comparison / timeline / scene` — is inferred from `Purpose` per [`image-type-templates/_index.md`](./image-type-templates/_index.md); no need to label every row.) |
 | **Acquire Via** | `ai` / `web` / `user` / `placeholder` — drives Step 5 dispatch |
 | Status | Initial status must be `Pending`, `Existing`, or `Placeholder`; see [`svg-image-embedding.md`](svg-image-embedding.md) for the full status enum |
 | **Reference** | Free-form **intent description** (NOT a search query); feeds Image_Generator (ai) or Image_Searcher (web) |
@@ -467,6 +441,16 @@ After the user picks a candidate, scan the outline and surface any pages where t
 | `web` | "Diverse team collaborating at a modern office desk, professional editorial photography, natural light, laptop visible" |
 | `ai` | "Atmospheric backdrop suggesting digital innovation; calm central area reserved for slide title overlay; light geometric anchor at one edge" |
 | `ai` | "Four-stage value chain from raw input to R&D output; icons should suggest tax-form → cost-reduction → equipment-upgrade → innovation; no text labels (SVG overlays them)" |
+
+**Image type descriptions**:
+
+| Type | Suitable Scenarios |
+|------|-------------------|
+| Background | Full-page backgrounds for covers/chapter pages; reserve text area |
+| Photography | Real scenes, people, products, architecture |
+| Illustration | Flat design, vector style, concept diagrams |
+| Diagram | Flowcharts, architecture diagrams, concept relationship maps |
+| Decorative pattern | Partial decoration, textures, borders, divider elements |
 
 🚧 **GATE — before writing §VIII Image Resource List**: when image approach is B/C/D/E (anything other than A "no images"), this is a three-layer hard requirement, not a suggestion:
 

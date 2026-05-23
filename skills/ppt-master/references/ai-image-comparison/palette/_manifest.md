@@ -14,6 +14,7 @@
 | Attribute | Value |
 |---|---|
 | Purpose | Palette comparison — cool-corporate |
+| Type | hero |
 | Aspect ratio | 16:9 |
 | Status | Generated |
 
@@ -31,6 +32,7 @@ Clean flat vector illustration with bold geometric shapes, sharp edges, no gradi
 | Attribute | Value |
 |---|---|
 | Purpose | Palette comparison — warm-earth |
+| Type | hero |
 | Aspect ratio | 16:9 |
 | Status | Generated |
 
@@ -48,6 +50,7 @@ Clean flat vector illustration with bold geometric shapes, sharp edges, no gradi
 | Attribute | Value |
 |---|---|
 | Purpose | Palette comparison — tech-neon |
+| Type | hero |
 | Aspect ratio | 16:9 |
 | Status | Generated |
 
@@ -65,6 +68,7 @@ Clean flat vector illustration with bold geometric shapes, sharp edges, solid fl
 | Attribute | Value |
 |---|---|
 | Purpose | Palette comparison — editorial-classic |
+| Type | hero |
 | Aspect ratio | 16:9 |
 | Status | Generated |
 
@@ -82,6 +86,7 @@ Clean flat vector illustration with bold geometric shapes, sharp edges, no gradi
 | Attribute | Value |
 |---|---|
 | Purpose | Palette comparison — macaron |
+| Type | hero |
 | Aspect ratio | 16:9 |
 | Status | Generated |
 
@@ -99,6 +104,7 @@ Clean flat vector illustration with bold rounded geometric shapes (slightly soft
 | Attribute | Value |
 |---|---|
 | Purpose | Palette comparison — mono-ink |
+| Type | hero |
 | Aspect ratio | 16:9 |
 | Status | Generated |
 
@@ -116,6 +122,7 @@ Clean flat vector illustration with bold geometric shapes, sharp edges, no gradi
 | Attribute | Value |
 |---|---|
 | Purpose | Palette comparison — vivid-launch |
+| Type | hero |
 | Aspect ratio | 16:9 |
 | Status | Generated |
 
@@ -133,6 +140,7 @@ Clean flat vector illustration with bold geometric shapes, sharp edges, no gradi
 | Attribute | Value |
 |---|---|
 | Purpose | Palette comparison — dark-cinematic |
+| Type | hero |
 | Aspect ratio | 16:9 |
 | Status | Generated |
 
@@ -150,6 +158,7 @@ Clean flat vector illustration with bold geometric shapes (subtle 8%-opacity glo
 | Attribute | Value |
 |---|---|
 | Purpose | Palette comparison — duotone |
+| Type | hero |
 | Aspect ratio | 16:9 |
 | Status | Generated |
 
@@ -167,6 +176,7 @@ Clean flat vector illustration with bold geometric shapes, sharp edges, no gradi
 | Attribute | Value |
 |---|---|
 | Purpose | Palette comparison — nature-organic |
+| Type | hero |
 | Aspect ratio | 16:9 |
 | Status | Generated |
 
@@ -184,6 +194,7 @@ Clean flat vector illustration with bold but slightly organic geometric shapes, 
 | Attribute | Value |
 |---|---|
 | Purpose | Palette comparison — jewel-tone |
+| Type | hero |
 | Aspect ratio | 16:9 |
 | Status | Generated |
 
@@ -201,6 +212,7 @@ Clean flat vector illustration with bold geometric shapes, sharp edges, no gradi
 | Attribute | Value |
 |---|---|
 | Purpose | Palette comparison — frost-ice |
+| Type | hero |
 | Aspect ratio | 16:9 |
 | Status | Generated |
 
@@ -218,6 +230,7 @@ Clean flat vector illustration with bold geometric shapes, sharp edges, no gradi
 | Attribute | Value |
 |---|---|
 | Purpose | Palette comparison — sunset-gradient |
+| Type | hero |
 | Aspect ratio | 16:9 |
 | Status | Generated |
 
@@ -235,6 +248,7 @@ Flat vector illustration with bold geometric shapes layered over a smooth atmosp
 | Attribute | Value |
 |---|---|
 | Purpose | Palette comparison — earthy-dusty |
+| Type | hero |
 | Aspect ratio | 16:9 |
 | Status | Generated |
 

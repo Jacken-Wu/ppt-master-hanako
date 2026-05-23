@@ -1,12 +1,3 @@
----
-layout_id: medical_university
-kind: layout
-summary: Medical academic reports, case discussions, research presentations, hospital work reports, medical education and training.
-canvas_format: ppt169
-page_count: 5
-page_types: [cover, toc, chapter, content, ending]
----
-
 # Hospital / Medical University Template (Medical University Style) - Design Specification
 
 > Suitable for hospitals, medical universities, affiliated hospitals, and medical research institutions for academic reports, case presentations, research results, and related scenarios.
@@ -37,7 +28,82 @@ page_types: [cover, toc, chapter, content, ending]
 
 ---
 
-## III. Page Structure
+## III. Color Scheme
+
+### Primary Colors
+
+| Role               | Value     | Notes                                    |
+| ------------------ | --------- | ---------------------------------------- |
+| **Primary Medical Blue** | `#0066B3` | Header background, chapter titles, main titles |
+| **Deep Medical Blue** | `#004080` | Chapter page background, key emphasis   |
+| **Accent Green**   | `#00A86B` | Card borders, life/health-related content, icons |
+| **Emphasis Orange** | `#FF6B35` | Key highlights, critical data, left accent bars |
+| **Light Blue BG**  | `#E6F3FA` | Key message background bar, card inner blocks |
+| **Light Green BG** | `#E8F5EE` | Medical-related cards, health data blocks |
+| **Background White** | `#FFFFFF` | Main page background                   |
+
+### Text Colors
+
+| Role             | Value     | Usage                      |
+| ---------------- | --------- | -------------------------- |
+| **White Text**   | `#FFFFFF` | Text on dark backgrounds   |
+| **Primary Text** | `#333333` | Body content               |
+| **Secondary Text** | `#666666` | Captions, annotations    |
+| **Muted Gray**   | `#999999` | Footer, supplementary info |
+
+### Neutral Colors
+
+| Role           | Value     | Usage                        |
+| -------------- | --------- | ---------------------------- |
+| **Card Gray**  | `#F5F7FA` | Card inner background, info blocks |
+| **Border Gray**| `#D0D7E0` | Card borders, divider lines  |
+
+### Functional Colors
+
+| Usage        | Value     | Description                    |
+| ------------ | --------- | ------------------------------ |
+| **Success**  | `#28A745` | Positive indicators, recovery data |
+| **Warning**  | `#FFC107` | Precautions, reminders         |
+| **Danger**   | `#DC3545` | Critical values, risk alerts   |
+| **Info**     | `#17A2B8` | Info tips, reference data      |
+
+### Color Variant Schemes
+
+To adapt to other medical institution branding, replace the corresponding values in the primary color system:
+
+| Institution Type    | Primary   | Accent    | Emphasis  | Applicable Scenarios          |
+| ------------------- | --------- | --------- | --------- | ----------------------------- |
+| Default Medical Blue | `#0066B3` | `#00A86B` | `#FF6B35` | General hospitals, medical universities |
+| Children's Hospital | `#0099CC` | `#66CC99` | `#FF9933` | Children's hospitals, pediatric specialties |
+| TCM Hospital        | `#8B4513` | `#228B22` | `#DAA520` | TCM hospitals, TCM research institutes |
+| Maternal & Child Health | `#E91E8C` | `#9C27B0` | `#FF5722` | Maternal & child health centers, OB/GYN |
+
+> **Usage**: Perform a global find-and-replace of the primary color values across all SVG template files to quickly switch color schemes.
+
+---
+
+## IV. Typography System
+
+### Font Stack
+
+**Font Stack**: `"Microsoft YaHei", "微软雅黑", Arial, sans-serif`
+
+### Font Size Hierarchy
+
+| Level | Usage            | Size | Weight  |
+| ----- | ---------------- | ---- | ------- |
+| H1    | Cover main title | 52px | Bold    |
+| H2    | Page title       | 28px | Bold    |
+| H3    | Chapter title    | 52px | Bold    |
+| H4    | Card title       | 24px | Bold    |
+| P     | Body content     | 18px | Regular |
+| High  | Emphasized data  | 36px | Bold    |
+| Sub   | Notes/sources    | 14px | Regular |
+| XS    | Page number/copyright | 12px | Regular |
+
+---
+
+## V. Page Structure
 
 ### General Layout
 
@@ -57,7 +123,7 @@ page_types: [cover, toc, chapter, content, ending]
 
 ---
 
-## IV. Page Types
+## VI. Page Types
 
 ### 1. Cover Page (01_cover.svg)
 
@@ -104,17 +170,7 @@ page_types: [cover, toc, chapter, content, ending]
 
 ---
 
-## V. SVG Page Roster
-
-| File | Role | Description |
-|------|------|-------------|
-| `01_cover.svg` | cover | Title slide; project name, presenter, date |
-| `02_chapter.svg` | chapter | Chapter divider page (large number + chapter title) |
-| `02_toc.svg` | toc | Table of contents listing major sections |
-| `03_content.svg` | content | Main content page; body of the deck |
-| `04_ending.svg` | ending | Closing/thank-you page |
-
-## VI. Layout Patterns (Recommended)
+## VII. Layout Patterns (Recommended)
 
 ### Common Layouts for Medical Reports
 
@@ -129,7 +185,7 @@ page_types: [cover, toc, chapter, content, ending]
 
 ---
 
-## VII. Spacing Specification
+## VIII. Spacing Specification
 
 | Spacing Type       | Value | Usage                            |
 | ------------------ | ----- | -------------------------------- |
@@ -141,7 +197,7 @@ page_types: [cover, toc, chapter, content, ending]
 
 ---
 
-## VIII. SVG Technical Constraints
+## IX. SVG Technical Constraints
 
 ### Mandatory Rules
 
@@ -168,7 +224,7 @@ page_types: [cover, toc, chapter, content, ending]
 
 ---
 
-## IX. Placeholder Specification
+## X. Placeholder Specification
 
 | Placeholder         | Usage                        |
 | ------------------- | ---------------------------- |
@@ -196,7 +252,7 @@ page_types: [cover, toc, chapter, content, ending]
 
 ---
 
-## X. Usage Notes
+## XI. Usage Notes
 
 ### 1. Copy Template to Project
 
@@ -212,7 +268,7 @@ cp templates/layouts/medical_university/* projects/<project>/templates/
 
 ---
 
-## XI. Medical Content-Specific Components
+## XII. Medical Content-Specific Components
 
 ### Data Card (Vital Signs)
 
